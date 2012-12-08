@@ -1,4 +1,4 @@
-%define	evolution_base_version	3.4
+%define	evolution_base_version	3.6
 %define	api	1.2
 %define	major	0
 %define	libeews		%mklibname eews %{api} %{major}
@@ -8,12 +8,12 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.4.4
+Version:	3.6.1
 Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
 Url:		http://projects.gnome.org/evolution/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
 BuildRequires:	pkgconfig(evolution-plugin-3.0)
@@ -97,8 +97,9 @@ find %{buildroot}%{_libdir} -name '*.la' -delete -print
 %{_libdir}/evolution-data-server/calendar-backends/libecalbackendews.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
-%{_libdir}/evolution/%{evolution_base_version}/plugins/liborg-gnome-exchange-ews.so
-%{_libdir}/evolution/%{evolution_base_version}/plugins/org-gnome-exchange-ews.eplug
+%{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
+%{_libdir}/evolution/3.6/modules/module-ews-configuration.so
+%{_datadir}/evolution/3.6/errors/module-ews-configuration.error
 
 %files -n %{libeews}
 %dir %{_libdir}/evolution-data-server-%{evolution_base_version}
@@ -117,4 +118,17 @@ find %{buildroot}%{_libdir} -name '*.la' -delete -print
 %{_libdir}/evolution-data-server-%{evolution_base_version}/libewsutils.so
 %{_libdir}/liblzx.so
 %{_includedir}/evolution-data-server-%{evolution_base_version}/ews/
+
+
+
+%changelog
+* Wed Nov 14 2012 Arkady L. Shane <ashejn@rosalab.ru> 3.6.1-1
+- update to 3.6.1
+
+* Tue Oct 16 2012 Arkady L. Shane <ashejn@rosalab.ru> 3.6.0-1
+- update to 3.6.0
+
+* Tue Jun 19 2012 Matthew Dawkins <mattydaw@mandriva.org> 3.4.3-1
++ Revision: 806235
+- imported package evolution-ews
 
