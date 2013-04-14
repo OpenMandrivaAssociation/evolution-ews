@@ -5,6 +5,7 @@
 %define	libewsutils	%mklibname ewsutils %{major}
 %define	liblzx		%mklibname lzx %{major}
 %define	devname		%mklibname eews -d
+%define _disable_ld_no_undefined 1
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
