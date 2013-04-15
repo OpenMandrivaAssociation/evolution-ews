@@ -1,11 +1,12 @@
-%define	evolution_base_version	3.6
+%define _disable_ld_no_undefined 1
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
 %define	api	1.2
 %define	major	0
 %define	libeews		%mklibname eews %{api} %{major}
 %define	libewsutils	%mklibname ewsutils %{major}
 %define	liblzx		%mklibname lzx %{major}
 %define	devname		%mklibname eews -d
-%define _disable_ld_no_undefined 1
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
@@ -14,7 +15,7 @@ Release:	2
 License:	LGPLv2+
 Group:		Networking/Mail
 Url:		http://projects.gnome.org/evolution/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
 BuildRequires:	pkgconfig(evolution-plugin-3.0)
@@ -91,7 +92,6 @@ later).
 
 %install
 %makeinstall_std
-find %{buildroot}%{_libdir} -name '*.la' -delete -print
 
 %find_lang %{name}
 
@@ -102,40 +102,24 @@ find %{buildroot}%{_libdir} -name '*.la' -delete -print
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
 %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
-%{_libdir}/evolution/3.6/modules/module-ews-configuration.so
-%{_datadir}/evolution/3.6/errors/module-ews-configuration.error
+%{_libdir}/evolution/%{url_ver}/modules/module-ews-configuration.so
+%{_datadir}/evolution/%{url_ver}/errors/module-ews-configuration.error
 
 %files -n %{libeews}
-%dir %{_libdir}/evolution-data-server-%{evolution_base_version}
-%{_libdir}/evolution-data-server-%{evolution_base_version}/libeews-%{api}.so.%{major}*
+%dir %{_libdir}/evolution-data-server-%{url_ver}
+%{_libdir}/evolution-data-server-%{url_ver}/libeews-%{api}.so.%{major}*
 
 %files -n %{libewsutils}
-%{_libdir}/evolution-data-server-%{evolution_base_version}/libewsutils.so.%{major}*
+%{_libdir}/evolution-data-server-%{url_ver}/libewsutils.so.%{major}*
 
 %files -n %{liblzx}
 %{_libdir}/liblzx.so.%{major}*
 
 %files -n %{devname}
-%{_libdir}/pkgconfig/libeews-1.2.pc
-%dir %{_libdir}/evolution-data-server-%{evolution_base_version}
-%{_libdir}/evolution-data-server-%{evolution_base_version}/libeews-1.2.so
-%{_libdir}/evolution-data-server-%{evolution_base_version}/libewsutils.so
+%{_libdir}/pkgconfig/libeews-%{api}.pc
+%dir %{_libdir}/evolution-data-server-%{url_ver}
+%{_libdir}/evolution-data-server-%{url_ver}/libeews-%{api}.so
+%{_libdir}/evolution-data-server-%{url_ver}/libewsutils.so
 %{_libdir}/liblzx.so
-%{_includedir}/evolution-data-server-%{evolution_base_version}/ews/
-
-
-
-%changelog
-* Sat Dec  8 2012 Arkady L. Shane <ashejn@rosalab.ru> 3.6.1-2
-- added R: evolution and evolution-data-server
-
-* Wed Nov 14 2012 Arkady L. Shane <ashejn@rosalab.ru> 3.6.1-1
-- update to 3.6.1
-
-* Tue Oct 16 2012 Arkady L. Shane <ashejn@rosalab.ru> 3.6.0-1
-- update to 3.6.0
-
-* Tue Jun 19 2012 Matthew Dawkins <mattydaw@mandriva.org> 3.4.3-1
-+ Revision: 806235
-- imported package evolution-ews
+%{_includedir}/evolution-data-server-%{url_ver}/ews/
 
