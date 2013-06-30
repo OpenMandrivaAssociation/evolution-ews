@@ -117,9 +117,9 @@ later).
 
 %files -n %{devname}
 %{_libdir}/pkgconfig/libeews-%{api}.pc
-%dir %{_libdir}/evolution-data-server-%{url_ver}
-%{_libdir}/evolution-data-server-%{url_ver}/libeews-%{api}.so
-%{_libdir}/evolution-data-server-%{url_ver}/libewsutils.so
+%dir %{_libdir}/evolution-data-server
+%{_libdir}/evolution-data-server/libeews-%{api}.so
+%{_libdir}/evolution-data-server/libewsutils.so
 %{_libdir}/liblzx.so
 %{_includedir}/evolution-data-server/ews/
 
