@@ -106,11 +106,11 @@ later).
 %{_datadir}/evolution/%{url_ver}/errors/module-ews-configuration.error
 
 %files -n %{libeews}
-%dir %{_libdir}/evolution-data-server-%{url_ver}
-%{_libdir}/evolution-data-server-%{url_ver}/libeews-%{api}.so.%{major}*
+%dir %{_libdir}/evolution-data-server
+%{_libdir}/evolution-data-server/libeews-%{api}.so.%{major}*
 
 %files -n %{libewsutils}
-%{_libdir}/evolution-data-server-%{url_ver}/libewsutils.so.%{major}*
+%{_libdir}/evolution-data-server/libewsutils.so.%{major}*
 
 %files -n %{liblzx}
 %{_libdir}/liblzx.so.%{major}*
@@ -121,5 +121,5 @@ later).
 %{_libdir}/evolution-data-server-%{url_ver}/libeews-%{api}.so
 %{_libdir}/evolution-data-server-%{url_ver}/libewsutils.so
 %{_libdir}/liblzx.so
-%{_includedir}/evolution-data-server-%{url_ver}/ews/
+%{_includedir}/evolution-data-server/ews/
 
