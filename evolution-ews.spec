@@ -5,7 +5,6 @@
 %define	major	0
 %define	libeews		%mklibname eews %{api} %{major}
 %define	libewsutils	%mklibname ewsutils %{major}
-%define	liblzx		%mklibname lzx %{major}
 %define	devname		%mklibname eews -d
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
@@ -62,19 +61,11 @@ Group:		System/Libraries
 %description -n %{libewsutils}
 This library provides utilities API for EWS Exchange Connector.
 
-%package  -n %{liblzx}
-Summary:	Client library for Accessing Exchange Servers - LZX library
-Group:		System/Libraries
-
-%description -n %{liblzx}
-This library is an implementation of the LZX compression algorithm.
-
 %package -n %{devname}
 Summary:	Client library for Accessing Exchange Servers - Development Files
 Group:		Development/C
 Requires:	%{libeews} = %{version}
 Requires:	%{libewsutils} = %{version}
-Requires:	%{liblzx} = %{version}
 
 %description -n %{devname}
 This library is a client library for accessing Exchange servers through
@@ -112,14 +103,9 @@ later).
 %files -n %{libewsutils}
 %{_libdir}/evolution-data-server/libewsutils.so.%{major}*
 
-%files -n %{liblzx}
-%{_libdir}/liblzx.so.%{major}*
-
 %files -n %{devname}
-%{_libdir}/pkgconfig/libeews-%{api}.pc
 %dir %{_libdir}/evolution-data-server
 %{_libdir}/evolution-data-server/libeews-%{api}.so
 %{_libdir}/evolution-data-server/libewsutils.so
-%{_libdir}/liblzx.so
 %{_includedir}/evolution-data-server/ews/
 
