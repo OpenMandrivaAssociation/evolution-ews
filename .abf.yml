@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   evolution-ews-3.6.1.tar.xz: e8f89c07da647adaa5e694128ff0d93c6013c81f
+sources:
+  evolution-ews-3.10.4.tar.xz: 6e48215b66c3ca800f7859a24d9308d013f0591a
