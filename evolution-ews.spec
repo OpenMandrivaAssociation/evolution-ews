@@ -86,7 +86,7 @@ later).
 
 %build
 %configure2_5x \
-	--disable-static
+	--disable-static --with-internal-lzx
 
 %make LIBS='-lm'
 
