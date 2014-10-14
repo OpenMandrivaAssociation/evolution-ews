@@ -9,15 +9,15 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.10.4
-Release:	3
+Version:	3.13.6
+Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
 Url:		http://projects.gnome.org/evolution/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
-BuildRequires:	pkgconfig(evolution-plugin-3.0)
+#BuildRequires:	pkgconfig(evolution-plugin-3.0)
 BuildRequires:	pkgconfig(evolution-shell-3.0)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
@@ -93,8 +93,9 @@ later).
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
 %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
-%{_libdir}/evolution/%{url_ver}/modules/module-ews-configuration.so
-%{_datadir}/evolution/%{url_ver}/errors/module-ews-configuration.error
+%{_datadir}/evolution-data-server/ews
+%{_libdir}/evolution/modules/module-ews-configuration.so
+%{_datadir}/evolution/errors/module-ews-configuration.error
 
 %files -n %{libeews}
 %dir %{_libdir}/evolution-data-server
