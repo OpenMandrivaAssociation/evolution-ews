@@ -1,4 +1,6 @@
 %define _disable_ld_no_undefined 1
+%define _disable_rebuild_configure 1
+
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define	api	1.2
@@ -9,8 +11,8 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.16.1
-Release:	3
+Version:	3.18.1
+Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
 Url:		http://projects.gnome.org/evolution/
@@ -19,7 +21,6 @@ BuildRequires:	intltool
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
 #BuildRequires:	pkgconfig(evolution-plugin-3.0)
 BuildRequires:	pkgconfig(evolution-shell-3.0)
-BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-desktop-3.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
