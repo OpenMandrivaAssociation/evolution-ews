@@ -1,17 +1,14 @@
 %define _disable_ld_no_undefined 1
-%define _disable_rebuild_configure 1
+%define _cmake_skip_rpath %nil
 
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define	api	1.2
 %define	major	0
-%define	libeews		%mklibname eews %{api} %{major}
-%define	libewsutils	%mklibname ewsutils %{major}
-%define	devname		%mklibname eews -d
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.18.1
+Version:	3.28.0
 Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
@@ -31,6 +28,7 @@ BuildRequires:	pkgconfig(libedata-cal-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libemail-engine)
 BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(libmspack)
 
 Requires:       evolution-data-server
 Requires:       evolution
@@ -46,43 +44,17 @@ and is therefore compatible with Exchange 2007 and later.
 Provides exchange connectivity for exchange server 2007 and later using
 exchange web services protocol.
 
-%package  -n %{libeews}
-Summary:	Client library for Accessing Exchange Servers
-Group:		System/Libraries
-
-%description -n %{libeews}
-This library is a client library for accessing Exchange servers through
-the Exchange Web Services interface (compatible with Exchange 2007 and
-later).
-
-%package  -n %{libewsutils}
-Summary:	Client library for Accessing Exchange Servers -- Utilities library
-Group:		System/Libraries
-
-%description -n %{libewsutils}
-This library provides utilities API for EWS Exchange Connector.
-
-%package -n %{devname}
-Summary:	Client library for Accessing Exchange Servers - Development Files
-Group:		Development/C
-Requires:	%{libeews} = %{version}
-Requires:	%{libewsutils} = %{version}
-
-%description -n %{devname}
-This library is a client library for accessing Exchange servers through
-the Exchange Web Services interface (compatible with Exchange 2007 and
-later).
-
 %prep
 %setup -q
 
 %build
-%configure --with-internal-lzx
+%cmake -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
+       -DLIB_INSTALL_DIR:PATH=%{_libdir}
 
 %make LIBS='-lm'
 
 %install
-%makeinstall_std
+%makeinstall_std -C build
 
 %find_lang %{name}
 
@@ -94,20 +66,7 @@ later).
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
 %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
 %{_datadir}/evolution-data-server/ews
-%{_datadir}/appdata/evolution-ews.metainfo.xml
+%{_datadir}/metainfo/org.gnome.Evolution-ews.metainfo.xml
 %{_libdir}/evolution/modules/module-ews-configuration.so
 %{_datadir}/evolution/errors/module-ews-configuration.error
-
-%files -n %{libeews}
-%dir %{_libdir}/evolution-data-server
-%{_libdir}/evolution-data-server/libeews-%{api}.so.%{major}*
-
-%files -n %{libewsutils}
-%{_libdir}/evolution-data-server/libewsutils.so.%{major}*
-
-%files -n %{devname}
-%dir %{_libdir}/evolution-data-server
-%{_libdir}/evolution-data-server/libeews-%{api}.so
-%{_libdir}/evolution-data-server/libewsutils.so
-%{_includedir}/evolution-data-server/ews/
-
+%{_libdir}/evolution-ews
