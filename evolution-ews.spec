@@ -15,6 +15,7 @@ Group:		Networking/Mail
 Url:		http://projects.gnome.org/evolution/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
+BuildRequires:	cmake
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
 #BuildRequires:	pkgconfig(evolution-plugin-3.0)
 BuildRequires:	pkgconfig(evolution-shell-3.0)
