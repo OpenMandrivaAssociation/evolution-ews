@@ -8,7 +8,7 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.30.3
+Version:	3.30.5
 Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
