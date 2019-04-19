@@ -8,7 +8,7 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.30.5
+Version:	3.32.1
 Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
@@ -52,10 +52,10 @@ exchange web services protocol.
 %cmake -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
        -DLIB_INSTALL_DIR:PATH=%{_libdir}
 
-%make LIBS='-lm'
+%make_build LIBS='-lm'
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 %find_lang %{name}
 
