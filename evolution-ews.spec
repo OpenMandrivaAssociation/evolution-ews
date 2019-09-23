@@ -8,7 +8,7 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.32.2
+Version:	3.34.0
 Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
@@ -24,8 +24,9 @@ BuildRequires:	pkgconfig(gnome-desktop-3.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libebackend-1.2)
 BuildRequires:	pkgconfig(libebook-1.2)
+BuildRequires:       pkgconfig(libecal-2.0)
 BuildRequires:	pkgconfig(libedata-book-1.2)
-BuildRequires:	pkgconfig(libedata-cal-1.2)
+BuildRequires:	pkgconfig(libedata-cal-2.0)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libemail-engine)
 BuildRequires:	pkgconfig(libsoup-2.4)
