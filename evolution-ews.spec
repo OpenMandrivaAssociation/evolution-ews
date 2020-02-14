@@ -47,7 +47,7 @@ Provides exchange connectivity for exchange server 2007 and later using
 exchange web services protocol.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}
 
 %build
 %cmake -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
