@@ -73,3 +73,9 @@ exchange web services protocol.
 %{_libdir}/evolution/modules/module-ews-configuration.so
 %{_datadir}/evolution/errors/module-ews-configuration.error
 %{_libdir}/evolution-ews
+%{_libdir}/evolution-data-server/addressbook-backends/libebookbackendmicrosoft365.so
+%{_libdir}/evolution-data-server/calendar-backends/libecalbackendmicrosoft365.so
+%{_libdir}/evolution-data-server/camel-providers/libcamelmicrosoft365.so
+%{_libdir}/evolution-data-server/camel-providers/libcamelmicrosoft365.urls
+%{_libdir}/evolution-data-server/registry-modules/module-microsoft365-backend.so
+%{_libdir}/evolution/modules/module-microsoft365-configuration.so
