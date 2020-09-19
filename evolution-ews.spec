@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libemail-engine)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libmspack)
+BuildRequires:       pkgconfig(json-glib-1.0)
 
 Requires:       evolution-data-server
 Requires:       evolution
