@@ -8,12 +8,12 @@
 
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
-Version:	3.50.2
+Version:	3.50.3
 Release:	1
 License:	LGPLv2+
 Group:		Networking/Mail
-Url:		http://projects.gnome.org/evolution/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://projects.gnome.org/evolution/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/evolution-ews/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
