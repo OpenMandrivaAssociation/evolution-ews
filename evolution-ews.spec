@@ -16,6 +16,7 @@ Url:		https://projects.gnome.org/evolution/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/evolution-ews/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	cmake
+BuildRequires:       make
 BuildRequires:	pkgconfig(evolution-data-server-1.2)
 #BuildRequires:	pkgconfig(evolution-plugin-3.0)
 BuildRequires:	pkgconfig(evolution-shell-3.0)
