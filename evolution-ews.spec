@@ -9,7 +9,7 @@
 Summary:	Exchange Connector for Evolution, compatible with Exchange 2007 and later
 Name:		evolution-ews
 Version:	3.62.1
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Networking/Mail
 Url:		https://projects.gnome.org/evolution/
